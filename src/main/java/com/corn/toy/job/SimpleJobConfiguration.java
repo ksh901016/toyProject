@@ -7,7 +7,6 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.repeat.RepeatStatus;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,18 +20,28 @@ public class SimpleJobConfiguration {
     @Bean
     public Job simpleJob(){
         return jobBuilderFactory.get("simpleJob")
-                    .start(simpleStep())
+                    .start(simpleStep1())
+                    .next(simpleStep2())
                     .build();
     }
 
     @Bean
-    public Step simpleStep(){
-        return stepBuilderFactory.get("simpleStep")
+    public Step simpleStep1(){
+        return stepBuilderFactory.get("simpleStep1")
                     .tasklet((stepContribution, chunkContext) -> {
-                        log.info(">>> This is Step1");
+                        log.info(">>> simpleStep1 >>>");
                         return RepeatStatus.FINISHED;
                     })
                     .build();
     }
 
+    @Bean
+    public Step simpleStep2(){
+        return stepBuilderFactory.get("simpleStep2")
+                    .tasklet((stepContribution, chunkContext) -> {
+                        log.info(">>> simpleStep2 >>");
+                        return RepeatStatus.FINISHED;
+                    })
+                    .build();
+    }
 }
