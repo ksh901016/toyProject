@@ -1,11 +1,8 @@
 package com.corn.toy.sample;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SampleController {
@@ -14,6 +11,17 @@ public class SampleController {
     public String init(Model model){
         model.addAttribute("name", "corn");
         return "init";
+    }
+
+    @GetMapping("/freemarker")
+    public String freemarker(Model model){
+        model.addAttribute("name", "corn!!");
+        return "freemarker";
+    }
+
+    @GetMapping("/jsp/hello")
+    public String jsp(){
+        return "hello";
     }
 
     @GetMapping("/exception")
