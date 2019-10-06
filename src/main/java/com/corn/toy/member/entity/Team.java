@@ -3,8 +3,8 @@ package com.corn.toy.member.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -13,8 +13,8 @@ import javax.persistence.Id;
 public class Team {
 
     @Id
-    @GeneratedValue
+    @Column(name = "TEAM_ID")
     private String id;
 
-    private String teamName;
+    private String name;
 }

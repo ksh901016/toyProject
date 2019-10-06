@@ -4,7 +4,6 @@ import com.corn.toy.member.entity.Member;
 import com.corn.toy.member.entity.MemberDTO;
 import com.corn.toy.member.entity.QMember;
 import com.corn.toy.member.entity.QTeam;
-import com.mysema.query.BooleanBuilder;
 import com.mysema.query.QueryModifiers;
 import com.mysema.query.SearchResults;
 import com.mysema.query.jpa.impl.JPAQuery;
@@ -12,7 +11,6 @@ import com.mysema.query.types.Projections;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-import org.thymeleaf.util.StringUtils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -34,17 +32,19 @@ public class MemberRunner implements ApplicationRunner {
                                     .list(qMember);
         System.out.println(memberList);*/
 
+        /*
         JPAQuery query = new JPAQuery(em);
         QMember member = QMember.member;
         List<Member> members = query.from(member)
                                     .where(member.name.eq("이적").and(member.age.gt(30)))
                                     .where(member.name.eq("이적"), member.age.gt(30)) // 여러 파라미터를 넘겨도된다. (and 연산)
                                     .list(member);
+                                    */
         // member.age.between(30, 50);     // 나이가 30~50 사이
         // member.name.contains("이적");   // '%이적%' 검색
         // member.name.startsWith("이적"); // '이적%' 검색
 
-        condition();
+        //condition();
     }
 
     private void runPagingAndSortQuery(){
@@ -123,7 +123,7 @@ public class MemberRunner implements ApplicationRunner {
                 // Projections.constructor(MemberDTO.class, member.name, member.age) // 생성자 사용
         );
     }
-
+/*
     public void condition(){
         JPAQuery query = new JPAQuery(em);
         Member condition = new Member();
@@ -148,5 +148,5 @@ public class MemberRunner implements ApplicationRunner {
         List<Member> resutList = query.from(member)
                                     .where(builder)
                                     .list(member);
-    }
+    }*/
 }
