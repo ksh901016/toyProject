@@ -18,7 +18,7 @@ import java.util.List;
 
 @Component
 public class MemberRunner implements ApplicationRunner {
-    @PersistenceContext
+    //@PersistenceContext
     EntityManager em;
 
     @Override
