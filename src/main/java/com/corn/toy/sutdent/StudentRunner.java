@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 @Component
 public class StudentRunner implements ApplicationRunner {
 
-    @PersistenceContext
+    //@PersistenceContext
     EntityManager em;
 
     @Override
@@ -31,6 +31,6 @@ public class StudentRunner implements ApplicationRunner {
         student.setName("corn");
         student.setAdditionalData(additionalData);
 
-        em.persist(student);
+        //em.persist(student);
     }
 }

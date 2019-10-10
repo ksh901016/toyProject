@@ -1,9 +1,6 @@
 package com.corn.toy.member.runner;
 
-import com.corn.toy.member.entity.Member;
-import com.corn.toy.member.entity.MemberDTO;
-import com.corn.toy.member.entity.QMember;
-import com.corn.toy.member.entity.QTeam;
+import com.corn.toy.member.entity.*;
 import com.mysema.query.QueryModifiers;
 import com.mysema.query.SearchResults;
 import com.mysema.query.jpa.impl.JPAQuery;
@@ -14,15 +11,45 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Component
 public class MemberRunner implements ApplicationRunner {
-    //@PersistenceContext
+    @PersistenceContext
     EntityManager em;
 
     @Override
+    @Transactional
     public void run(ApplicationArguments args) throws Exception {
+        // 팀1 저장
+        Team team1 = new Team("team1", "팀1");
+        em.persist(team1);
+        em.flush();
+
+
+        // 회원1 저장
+        Member member1 = new Member("member1", "회원1");
+        member1.setTeam(team1);
+        em.persist(member1);
+
+        // 회원2 저장
+        Member member2 = new Member("member2", "회원2");
+        member2.setTeam(team1);
+        em.persist(member2);
+        em.flush();
+
+        Member member = em.find(Member.class, "member1");
+        System.out.println(member);
+
+        Team team = em.find(Team.class, "team1");
+        System.out.println(team);
+        List<Member> memberList = team.getMemberList();
+        memberList.stream().forEach(System.out::println);
+
+
+
+
         /*
         JPAQuery query = new JPAQuery(em);
         QMember qMember = QMember.member;
