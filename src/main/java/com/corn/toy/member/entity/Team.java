@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +26,10 @@ public class Team {
 
     private String name;
 
-    // 연관 관계 추가
-    @OneToMany(mappedBy = "team")
+
+    @OneToMany(mappedBy = "team") // 다대일 양방향 관계
+    //@OneToMany // 일대다 단방향 관계(Team이 주인)
+    //@JoinColumn(name = "TEAM_ID")
     private List<Member> memberList = new ArrayList<>();
+
 }

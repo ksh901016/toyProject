@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@ToString
 public class Member {
 
     public Member(String id, String username){
@@ -27,4 +26,11 @@ public class Member {
     @ManyToOne
     @JoinColumn(name="TEAM_ID")
     private Team team;
+
+    public void setTeam(Team team){
+        this.team = team;
+        if(!team.getMemberList().contains(this)){
+            team.getMemberList().add(this);
+        }
+    }
 }

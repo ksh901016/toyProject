@@ -51,4 +51,15 @@ public class SimpleControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(xpath("/User/name").string("corn"));
     }
+
+    @Test
+    public void postTest() throws Exception {
+        String json = "{\"productSeq\" : 123}";
+        mockMvc.perform(post("/users")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(json))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+    }
 }

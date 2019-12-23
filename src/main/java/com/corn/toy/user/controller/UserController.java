@@ -28,9 +28,10 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
+    /*
     @PostMapping("/users")
     public User add(@RequestBody User user){
         entityList.add(user);
         return user;
-    }
+    }*/
 }
