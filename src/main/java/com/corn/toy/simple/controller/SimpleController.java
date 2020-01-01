@@ -2,12 +2,10 @@ package com.corn.toy.simple.controller;
 
 import com.corn.toy.simple.constants.Level;
 import com.corn.toy.simple.entity.User;
-import com.corn.toy.simple.property.LevelPropertyEditor;
+import com.corn.toy.simple.bind.LevelPropertyEditor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @Slf4j

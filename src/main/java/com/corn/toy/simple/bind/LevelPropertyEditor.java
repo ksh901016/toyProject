@@ -1,4 +1,4 @@
-package com.corn.toy.simple.property;
+package com.corn.toy.simple.bind;
 
 import com.corn.toy.simple.constants.Level;
 
