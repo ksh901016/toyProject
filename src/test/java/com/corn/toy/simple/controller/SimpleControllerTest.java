@@ -4,8 +4,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -21,6 +23,12 @@ public class SimpleControllerTest {
 
     @Autowired
     MockMvc mockMvc;
+
+    @Test
+    public void validateTest() throws Exception{
+        mockMvc.perform(post("/add").requestAttr("username", "이름").requestAttr("age", 0))
+                .andExpect(status().isOk());
+    }
 
     @Test
     public void hello() throws Exception {
