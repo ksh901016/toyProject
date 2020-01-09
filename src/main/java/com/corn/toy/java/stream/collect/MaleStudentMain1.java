@@ -1,6 +1,7 @@
 package com.corn.toy.java.stream.collect;
 
 import com.corn.toy.java.stream.Student;
+import com.corn.toy.java.stream.StudentMockData;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,14 +11,7 @@ import java.util.stream.Stream;
 
 public class MaleStudentMain1 {
     public static void main(String[] args) {
-        List<Student> totalList = Arrays.asList(
-            new Student("깡냉", 10, Student.Sex.MALE),
-            new Student("손생", 8, Student.Sex.MALE),
-            new Student("크리스챤", 5, Student.Sex.MALE),
-            new Student("원숭이", 5, Student.Sex.MALE),
-            new Student("완두콩", 0, Student.Sex.FEMALE),
-            new Student("완두콩2", 0, Student.Sex.FEMALE)
-        );
+        List<Student> totalList = StudentMockData.totalList;
 
         Stream<Student> totalStream = totalList.stream();
         Stream<Student> maleStream = totalStream.filter(s -> s.getSex() == Student.Sex.MALE);
