@@ -1,4 +1,4 @@
-package com.corn.toy.environment;
+package com.corn.toy.springboot.environment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;

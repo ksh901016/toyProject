@@ -20,6 +20,7 @@ public class StudentRunner implements ApplicationRunner {
     @Override
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
+        /*
         AdditionalData additionalData = new AdditionalData();
         additionalData.setHeight(180d);
         additionalData.setWeight(70d);
@@ -30,7 +31,7 @@ public class StudentRunner implements ApplicationRunner {
         student.setAge(20);
         student.setName("corn");
         student.setAdditionalData(additionalData);
-
+        */
         //em.persist(student);
     }
 }

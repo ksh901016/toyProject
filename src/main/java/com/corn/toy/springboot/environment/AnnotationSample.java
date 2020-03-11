@@ -1,4 +1,4 @@
-package com.corn.toy.environment;
+package com.corn.toy.springboot.environment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,9 +21,10 @@ public class AnnotationSample implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        /*
         final Environment environment = context.getEnvironment();
         System.out.println(environment.getProperty("app.name"));
         System.out.println(environment.getProperty("app.pw"));
-        System.out.println("=====" + name + "=====");
+        System.out.println("=====" + name + "=====");*/
     }
 }

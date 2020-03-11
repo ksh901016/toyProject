@@ -22,6 +22,7 @@ public class MemberRunner implements ApplicationRunner {
     @Override
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
+        /*
         // 팀1 저장
         Team team1 = new Team("team1", "팀1");
         em.persist(team1);
@@ -45,7 +46,7 @@ public class MemberRunner implements ApplicationRunner {
         Team team = em.find(Team.class, "team1");
         System.out.println(team);
         List<Member> memberList = team.getMemberList();
-        memberList.stream().forEach(System.out::println);
+        memberList.stream().forEach(System.out::println);*/
 
 
 
